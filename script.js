@@ -57,7 +57,7 @@ const apiKey = "1511feebb89e40ecb8049ce952353c0b";
 
 async function getWeatherData(city) {
   let finalUrl = `${url}q=${city}&appid=${apiKey}&units=metric`;
-  let weatherData = await fetch(finalUrl);
+  let weatherData = await fetch(finalUrl).then((res) => res.json());
   console.log(weatherData);
 
   // 404 Error
@@ -75,5 +75,4 @@ async function getWeatherData(city) {
   humidity.innerHTML = weatherData.main.humidity;
 
   changeIcon(weatherData.weather[0].main);
-  console.log(weatherData.weather[0].main);
 }
