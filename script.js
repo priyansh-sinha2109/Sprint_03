@@ -88,8 +88,8 @@ async function getWeatherData(city) {
   description.textContent = weatherData.weather[0].description;
   temperature.textContent = Math.round(weatherData.main.temp) + "°c";
   cityName.textContent = weatherData.name;
-  wind.textContent = Math.round(weatherData.wind.speed * 3.6) + "km/h";
-  humidity.textContent = weatherData.main.humidity + "%";
+  wind.textContent = Math.round(weatherData.wind.speed * 3.6) + " km/h";
+  humidity.textContent = weatherData.main.humidity + " %";
 
   changeIcon(weatherData.weather[0].main);
 }
@@ -108,8 +108,8 @@ async function successCallback(position) {
   description.textContent = UserLocation.weather[0].description;
   temperature.textContent = Math.round(UserLocation.main.temp - 273.15) + "°c";
   cityName.textContent = UserLocation.name;
-  wind.textContent = UserLocation.wind.speed;
-  humidity.textContent = UserLocation.main.humidity;
+  wind.textContent = Math.round(UserLocation.wind.speed * 3.6) + " km/h";
+  humidity.textContent = UserLocation.main.humidity + " %";
 }
 function errorCallback(error) {
   alert("User location denied!!");
