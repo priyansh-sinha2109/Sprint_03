@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-Cast</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Tektur:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Starting Page-->
+    <div class="mainBox startBox">
+      <img src="./images/drizzle.png" alt="drizzle" id="drizzle" />
+      <h1 class="weather">Weather</h1>
+      <h2 class="forecast">Forecasts</h2>
+      <button class="start">Get Started</button>
+    </div>
+
+    <!--Middle Page-->
+    <div class="mainBox descBox inactive">
+      <div class="searchBox">
+        <input type="text" placeholder="Search city..." id="inputfield" />
+        <div class="image">
+          <img src="./images/search.png" alt="search" id="searchIcon" />
+        </div>
+      </div>
+      <div class="iconBox">
+        <img src="./images/clear.png" alt="icon-png" id="icon" />
+        <p id="desc">descriptions</p>
+      </div>
+      <div class="tempBox">
+        <h1 id="temp">0°c</h1>
+        <h3 id="city">New York</h3>
+      </div>
+
+      <div class="extradetails">
+        <div class="wind">
+          <img src="./images/wind.png" alt="wind" id="windIcon" />
+          <div class="windData">
+            <p id="windSpeed">0km/h</p>
+            <p>Wind</p>
+          </div>
+        </div>
+        <div class="humidity">
+          <img src="./images/humidity.png" alt="Humidity" id="HumidityIcon" />
+          <div class="HumidityData">
+            <p id="humidityper">0%</p>
+            <p>Humidity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Last page-->
+    <div class="mainBox errorBox inactive">
+      <h1>404</h1>
+      <p>☁️ Lost in the Clouds</p>
+      <p id="info">The page you're looking for has drifted away</p>
+      <button class="homeBtn">Go Home</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
