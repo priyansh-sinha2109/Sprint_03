@@ -17,6 +17,7 @@ const LastPage = document.querySelector(".errorBox");
 started.addEventListener("click", () => {
   startPage.classList.add("inactive");
   MiddlePage.classList.remove("inactive");
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 });
 
 home.addEventListener("click", () => {
@@ -79,6 +80,7 @@ async function getWeatherData(city) {
   if (weatherData.cod === "404" || weatherData.cod === 404) {
     MiddlePage.classList.add("inactive");
     LastPage.classList.remove("inactive");
+    successCallback(position);
     return;
   }
 
@@ -115,5 +117,3 @@ function errorCallback(error) {
   alert("User location denied!!");
   return;
 }
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
