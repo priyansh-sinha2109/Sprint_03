@@ -13,6 +13,18 @@
     />
   </head>
   <body>
+    <!-- Animated Background Layers -->
+    <div class="bg-layer bg-clear" id="bgClear"></div>
+    <div class="bg-layer bg-rain" id="bgRain"></div>
+    <div class="bg-layer bg-clouds" id="bgClouds"></div>
+    <div class="bg-layer bg-snow" id="bgSnow"></div>
+    <div class="bg-layer bg-haze" id="bgHaze"></div>
+    <div class="bg-layer bg-thunder" id="bgThunder"></div>
+    <div class="bg-layer bg-default active" id="bgDefault"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
     <!--Starting Page-->
     <div class="mainBox startBox">
       <img src="./images/drizzle.png" alt="drizzle" id="drizzle" />
@@ -39,7 +51,7 @@
         <p id="desc">descriptions</p>
       </div>
       <div class="tempBox">
-        <h1 id="temp">0°c</h1>
+        <h1 id="temp">0°C</h1>
         <h3 id="city">New York</h3>
       </div>
 
@@ -47,7 +59,7 @@
         <div class="wind">
           <img src="./images/wind.png" alt="wind" id="windIcon" />
           <div class="windData">
-            <p id="windSpeed">0km/h</p>
+            <p id="windSpeed">0 km/h</p>
             <p>Wind</p>
           </div>
         </div>
