@@ -186,19 +186,9 @@ function switchBackground(weatherMain) {
 }
 
 // ========== ICON MAP ==========
-function changeIcon(weatherMain) {
-  const icons = {
-    Clear: "./images/clear.png",
-    Clouds: "./images/clouds.png",
-    Drizzle: "./images/drizzle.png",
-    Haze: "./images/haze.png",
-    Mist: "./images/mist.png",
-    Fog: "./images/mist.png",
-    Rain: "./images/rain.png",
-    Snow: "./images/snow.png",
-    Thunderstorm: "./images/rain.png",
-  };
-  weatherIcons.src = icons[weatherMain] || "./images/clear.png";
+function changeIcon(data) {
+  const iconCode = data.weather[0].icon;
+  weatherIcons.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 }
 
 // ========== DISPLAY WEATHER DATA ==========
@@ -220,7 +210,7 @@ function displayWeather(data) {
   wind.textContent = windKmh + " km/h";
   humidity.textContent = hum + "%";
 
-  changeIcon(weatherMain);
+  changeIcon(data);
   switchBackground(weatherMain);
 }
 
@@ -232,8 +222,7 @@ async function getWeatherData(city) {
   let weatherData;
   try {
     const finalUrl = `${BASE_URL}q=${city}&appid=${apiKey}&units=metric`;
-    const savedData = localStorage.getItem(city);
-
+    const savedData = localStorage.getItem(city.toLowerCase());
     if (savedData == null) {
       const response = await fetch(finalUrl);
       weatherData = await response.json();
@@ -268,7 +257,7 @@ async function getWeatherData(city) {
 
   // Cache it
   const cache = { data: weatherData, timestamp: Date.now() };
-  localStorage.setItem(city, JSON.stringify(cache));
+  localStorage.setItem(city.toLowerCase(), JSON.stringify(cache));
 }
 
 // ========== GEOLOCATION ==========
@@ -290,8 +279,9 @@ async function successCallback(position) {
   displayWeather(UserLocation);
 }
 
-function errorCallback(error) {
-  alert("User location denied!!");
+function errorCallback() {
+  alert("Location permission denied. Showing default city weather.");
+  getWeatherData("Delhi");
 }
 
 // ========== EVENTS ==========
