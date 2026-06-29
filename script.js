@@ -237,7 +237,7 @@ async function getWeatherData(city) {
         weatherData = await response.json();
       }
     }
-    console.log(weatherData);
+    // console.log(weatherData);
   } catch (error) {
     alert("Network Error!...");
     return;
@@ -271,7 +271,7 @@ async function successCallback(position) {
     const finalUrl = `${geoUrl}lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     const response = await fetch(finalUrl);
     UserLocation = await response.json();
-    console.log(UserLocation);
+    // console.log(UserLocation);
   } catch (error) {
     alert("Error finding User Location!!");
     return;
